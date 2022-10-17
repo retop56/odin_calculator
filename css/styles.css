@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 1px);
+}
+
+.calc-container {
+  height: 35rem;
+  width: 25rem;
+  border: 5px solid white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calc-display {
+  height: 25%;
+  width: 90%;
+  border: 2px solid white;
+  margin: 20px auto 15px auto;
+}
