@@ -20,29 +20,32 @@ function operate(operator, numOne, numTwo) {
   numOne = parseFloat(numOne, 10);
   numTwo = parseFloat(numTwo, 10);
   if (operator === "+") {
-    // const answer = add(numOne, numTwo);
-    // return checkAnswerLength(answer)
-    return add(numOne, numTwo);
+    const answer = add(numOne, numTwo);
+    return checkNumOfDecimals(answer);
   } else if (operator === "-") {
-    // const answer = subtract(numOne, numTwo);
-    // return checkAnswerLength(answer)
-    return subtract(numOne, numTwo);
+    const answer = subtract(numOne, numTwo);
+    return checkNumOfDecimals(answer);
   } else if (operator === "*") {
-    // const answer = multiply(numOne, numTwo);
-    // return checkAnswerLength(answer)
-    return multiply(numOne, numTwo);
+    const answer = multiply(numOne, numTwo);
+    return checkNumOfDecimals(answer);
   } else {
     if (numTwo === 0) return alert("Cannot divide by zero!");
-    // const answer = divide(numOne, numTwo);
-    // return checkAnswerLength(answer)
-    return divide(numOne, numTwo);
+    const answer = divide(numOne, numTwo);
+    return checkNumOfDecimals(answer);
   }
 }
 
-// function checkAnswerLength(answer) {
-//   // if the answer is longer than
-//   if (Number.isInteger(answer) === false && )
-// }
+function checkNumOfDecimals(answer) {
+  const answerString = String(answer);
+  if (answerString.includes(".")) {
+    if (answerString.split(".")[1].length > 5) {
+      return answer.toFixed(5);
+    }
+    return answer;
+  } else {
+    return answer;
+  }
+}
 
 function handleDecimal() {
   if (secondOperand.includes(".")) {
