@@ -45,7 +45,7 @@ function operate(operator, numOne, numTwo) {
 // }
 
 function handleDecimal() {
-  if (currentDisplay.textContent.includes(".")) {
+  if (secondOperand.includes(".")) {
     return;
   }
   addToDisplay(".");
@@ -81,21 +81,23 @@ function updateDisplay() {
 }
 
 function clearDisplay() {
-  // operator = "";
   let cdText = currentDisplay.textContent;
   let oldText = oldDisplay.textContent;
-  if (cdText) {
+  if (!oldText) {
+    clearOps();
+    currentDisplay.textContent = "";
+  } else if (cdText) {
     currentDisplay.textContent = "";
   } else {
     oldDisplay.textContent = "";
-    // firstOperand = "";
     clearOps();
   }
 }
 
 function deleteLastChar() {
-  if (currentDisplay.textContent) {
-    currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
+  if (secondOperand) {
+    secondOperand = secondOperand.slice(0, -1);
+    updateDisplay();
   }
 }
 
@@ -128,7 +130,8 @@ function validateOperator(op) {
     firstOperand = operate(operator, firstOperand, secondOperand);
     secondOperand = "";
     operator = op;
-    toggleClearCurrentBoolean();
+    // toggleClearCurrentBoolean();
+    currentDisplay.textContent = "";
     oldDisplay.textContent = `${firstOperand} ${operator}`;
   }
 }

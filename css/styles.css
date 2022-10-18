@@ -68,6 +68,7 @@ body {
 .button {
   width: 85%;
   height: 85%;
+  outline: none;
   border: 2px solid white;
   border-radius: 5px;
   color: white;
